@@ -1,68 +1,119 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import Grid from '../components/grid';
+import Card from '../components/card';
 
 export default function Home() {
+  /*** CARDS ***/
+  /* Joey */
+  let joeyImage = <Image 
+                    src="/images/Joey.jpg"
+                    width="220"
+                    height="293"
+                  />;
+  let joeyTitle = "Joseph Toscano";
+  let joeyText = "Primary pixel artist, game designer, programmer, and co-founder of Seven Pixel Studios. " +
+  "Born and raised in the state of Florida, current student at University of California San Diego. " +
+  "I love to play and create videogames! The inspiration for our first game Battle Paddles and " +
+  "Seven Pixel Studios as a whole came from hours playing Shovel Knight, Undertale, Binding of Isaac, " + 
+  "and other indie titles.";
+
+  /* Zachary */
+  let zacharyImage = <Image 
+                       src="/images/Zachary.jpg"
+                       width="360"
+                       height="293"
+                     />;
+  let zacharyTitle = "Zachary Li Norman";
+  let zacharyText = "Game developer, game designer, business creator, and co-founder of Seven Pixel Studios. " +
+  "Born and raised in SoCal, I grew up playing and loving video games. I started software development " +
+  "with Minecraft mods, and now work full-time as a Software Engineer. Some of my favorite games include " +
+  "League of Legends, MapleStory, Minecraft, and Idle Heroes.";
+
+  /* Battle Paddles */
+  let bpImage = <Image 
+                  src="/images/bpApp_Icon.png"
+                  width="256"
+                  height="256"
+                />;
+  let bpTitle = "Battle Paddles";
+  let bpText = "Joey and Zach met at UCSD because there were both part of the same student organization, Alpha Phi Omega. " +
+  "From there, the two found a shared passion for game design and started to work on a prototype for a simple mobile game. " +
+  "After taking time to study for finals and abandoning the project temporarily, the group reconvened, " +
+  "formed Seven Pixel Studios, and Battle Paddles was born.";
+  /***************/
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Seven Pixel Studios</title>
+        <link rel="icon" href="/7PixelStudioLogoWhite.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
       </Head>
 
+      <div className={styles.header}>
+        <Image 
+          src="/images/7PixelStudioLogoBig.png"
+          width="256"
+          height="256"
+        />
+        <div style={{paddingTop: "10px"}}>
+          <h1 className={styles.title}>
+            Seven Pixel Studios
+          </h1>
+          <p className={styles.description}>
+            A Video Game Company Founded By Joseph Toscano and Zachary Li Norman
+          </p>
+        </div>
+      </div>
       <main>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          About Us
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
+        <Grid>
+          <Card 
+            image={joeyImage}
+            title={joeyTitle}
+            text={joeyText}
+          />
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+          <Card
+            image={zacharyImage}
+            title={zacharyTitle}
+            text={zacharyText}
+          />
+        </Grid>
+        
+        <h1 className={styles.title} style={{marginTop: "3rem"}}>
+          The Story
+        </h1>
+        <Grid>
+          <Card
+            image={bpImage}
+            title={bpTitle}
+            text={bpText}
+          />
+        </Grid>
       </main>
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="mailto:compnay@sevenpixelstudios.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
+          Contact Us: company@sevenpixelstudios.com
         </a>
+        <p>2023 © Seven Pixel Studios</p>
       </footer>
 
       <style jsx>{`
         main {
-          padding: 5rem 0;
+          padding: 3rem 0;
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -72,8 +123,8 @@ export default function Home() {
         footer {
           width: 100%;
           height: 100px;
-          border-top: 1px solid #eaeaea;
           display: flex;
+          flex-direction:column;
           justify-content: center;
           align-items: center;
         }
